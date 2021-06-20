@@ -1,0 +1,27 @@
+import re
+
+"""
+  正規表現定義
+"""
+RE_PTN1 = "^x([^;]*;){1}"
+RE_PTN2 = '"(.*?)"'
+
+def main():
+
+
+path = './0616.html'
+with open(path) as f:
+    lines = f.readlines()
+lines_strip = [line.strip() for line in lines]
+target = [line for line in lines_strip if line.startswith('x[')]
+
+for line in target:
+    ptn1 = "^x([^;]*;){1}"
+    ret1 = re.match(ptn1, line)
+    s = ret1.group(0).replace("\'", '\"')
+    ptn2 = '"(.*?)"'
+    ret2 = re.findall(ptn2, s)
+
+    with open('test.txt', 'a') as f:
+        f.write(ret2[0]+"\n")
+

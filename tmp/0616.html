@@ -1,0 +1,446 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+<TITLE>Kifu Player for Web</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+/// hyodai	
+/// kisen	
+/// sengata	
+/// teai	
+/// nitiji	2004年05月14日(金) 22:44:00
+/// basyo	
+p1 = 'dcsyhi';
+p2 = 'phoenix2000';
+pA = '';
+pB = '先手';
+reverse = 0;
+hanten = 0;
+start = 0;
+start1 = 'ya1ke1gi1ki1ou1ki1gi1ke1ya1blkhi1blkblkblkblkblkka1blkfu1fu1fu1fu1fu1fu1fu1fu1fu1blkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkblkfu0fu0fu0fu0fu0fu0fu0fu0fu0blkka0blkblkblkblkblkhi0blkya0ke0gi0ki0ou0ki0gi0ke0ya0';
+start2 = '----------';
+bar1 = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿\n■';
+bar2 = '\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\n';
+w = new Array(); x = new Array(); y = new Array(); z = new Array();
+w[0] = bar1 + 'tatuya／4月26日' + bar2 + '　 44手目にコメント';
+w[1] = '';
+w[2] = '';
+z[44] = bar1 + 'tatuya／4月26日' + bar2 + '先手無理攻めですね';
+x[0] = '７六歩';	y[0] = '77fu76fu00';
+x[1] = '３四歩';	y[1] = '33fu34fu00';
+x[2] = '４八銀';	y[2] = '39gi48gi00';
+x[3] = '４四歩';	y[3] = '43fu44fu00';
+x[4] = '６八玉';	y[4] = '59ou68ou00';
+x[5] = '４二飛';	y[5] = '82hi42hi00';
+x[6] = '７八玉';	y[6] = '68ou78ou00';
+x[7] = '９四歩';	y[7] = '93fu94fu00';
+x[8] = '９六歩';	y[8] = '97fu96fu00';
+x[9] = '７二銀';	y[9] = '71gi72gi00';
+x[10] = '５六歩';	y[10] = '57fu56fu00';
+x[11] = '３二銀';	y[11] = '31gi32gi00';
+x[12] = '５七銀';	y[12] = '48gi57gi00';
+x[13] = '４三銀';	y[13] = '32gi43gi00';
+x[14] = '２六歩';	y[14] = '27fu26fu00';
+x[15] = '６二玉';	y[15] = '51ou62ou00';
+x[16] = '２五歩';	y[16] = '26fu25fu00';
+x[17] = '３三角';	y[17] = '22ka33ka00';
+x[18] = '３六歩';	y[18] = '37fu36fu00';
+x[19] = '７一玉';	y[19] = '62ou71ou00';
+x[20] = '５八金';	y[20] = '49ki58ki00';
+x[21] = '５二金';	y[21] = '41ki52ki00';
+x[22] = '６八銀';	y[22] = '79gi68gi00';
+x[23] = '８二玉';	y[23] = '71ou82ou00';
+x[24] = '１六歩';	y[24] = '17fu16fu00';
+x[25] = '１四歩';	y[25] = '13fu14fu00';
+x[26] = '３七桂';	y[26] = '29ke37ke00';
+x[27] = '６四歩';	y[27] = '63fu64fu00';
+x[28] = '４五桂';	y[28] = '37ke45ke00';
+x[29] = '同　歩';	y[29] = '44fu45fukeke11';
+x[30] = '３三角成';	y[30] = '88ka33umkaka01ke11';
+x[31] = '同　桂';	y[31] = '21ke33keumka01ka11ke11';
+x[32] = '２四歩';	y[32] = '25fu24fu00ka01ka11ke11';
+x[33] = '同　歩';	y[33] = '23fu24fufuka01ka11ke11fu11';
+x[34] = '同　飛';	y[34] = '28hi24hifuka01fu01ka11ke11fu11';
+x[35] = '２二歩打';	y[35] = '00fu22fu00ka01fu01ka11ke11';
+x[36] = '３一角打';	y[36] = '00ka31ka00fu01ka11ke11';
+x[37] = '１三角打';	y[37] = '00ka13ka00fu01ke11';
+x[38] = '４二角成';	y[38] = '31ka42umhihi01fu01ke11';
+x[39] = '２四角';	y[39] = '13ka24kahihi01fu01hi11ke11';
+x[40] = '４三馬';	y[40] = '42um43umgihi01gi01fu01hi11ke11';
+x[41] = '同　金';	y[41] = '52ki43kiumhi01gi01fu01hi11ka11ke11';
+x[42] = '４一飛打';	y[42] = '00hi41hi00gi01fu01hi11ka11ke11';
+x[43] = '５二角打';	y[43] = '00ka52ka00gi01fu01hi11ke11';
+x[44] = '１一飛成';	y[44] = '41hi11ryyagi01ya01fu01hi11ke11';
+x[45] = '２五桂';	y[45] = '33ke25ke00gi01ya01fu01hi11ke11';
+x[46] = '５五歩';	y[46] = '56fu55fu00gi01ya01fu01hi11ke11';
+x[47] = '２九飛打';	y[47] = '00hi29hi00gi01ya01fu01ke11';
+x[48] = '６二香打';	y[48] = '00ya62ya00gi01fu01ke11';
+x[49] = '５一金';	y[49] = '61ki51ki00gi01fu01ke11';
+x[50] = '５六銀';	y[50] = '57gi56gi00gi01fu01ke11';
+x[51] = '３七桂成';	y[51] = '25ke37nk00gi01fu01ke11';
+x[52] = '３五歩';	y[52] = '36fu35fu00gi01fu01ke11';
+x[53] = '１九飛成';	y[53] = '29hi19ryyagi01fu01ke11ya11';
+x[54] = '４五銀';	y[54] = '56gi45gifugi01fu02ke11ya11';
+x[55] = '８四香打';	y[55] = '00ya84ya00gi01fu02ke11';
+x[56] = '５九銀';	y[56] = '68gi59gi00gi01fu02ke11';
+x[57] = '１六龍';	y[57] = '19ry16ryfugi01fu02ke11fu11';
+x[58] = '６六歩';	y[58] = '67fu66fu00gi01fu02ke11fu11';
+x[59] = '４一歩打';	y[59] = '00fu41fu00gi01fu02ke11';
+x[60] = '５四歩';	y[60] = '55fu54fu00gi01fu02ke11';
+x[61] = '６二金';	y[61] = '51ki62kiyagi01fu02ke11ya11';
+x[62] = '２二龍';	y[62] = '11ry22ryfugi01fu03ke11ya11';
+x[63] = '３三角';	y[63] = '24ka33ka00gi01fu03ke11ya11';
+x[64] = '同　龍';	y[64] = '22ry33rykaka01gi01fu03ke11ya11';
+x[65] = '同　金';	y[65] = '43ki33kiryka01gi01fu03hi11ke11ya11';
+x[66] = '５一角打';	y[66] = '00ka51ka00gi01fu03hi11ke11ya11';
+x[67] = '６六龍';	y[67] = '16ry66ryfugi01fu03hi11ke11ya11fu11';
+x[68] = '６二角成';	y[68] = '51ka62umkiki01gi01fu03hi11ke11ya11fu11';
+x[69] = '７六龍';	y[69] = '66ry76ryfuki01gi01fu03hi11ke11ya11fu12';
+x[70] = '６八玉';	y[70] = '78ou68ou00ki01gi01fu03hi11ke11ya11fu12';
+x[71] = '６六龍';	y[71] = '76ry66ry00ki01gi01fu03hi11ke11ya11fu12';
+x[72] = '６七金';	y[72] = '58ki67ki00ki01gi01fu03hi11ke11ya11fu12';
+x[73] = '７六桂打';	y[73] = '00ke76ke00ki01gi01fu03hi11ya11fu12';
+x[74] = '５八玉';	y[74] = '68ou58ou00ki01gi01fu03hi11ya11fu12';
+x[75] = '２八飛打';	y[75] = '00hi28hi00ki01gi01fu03ya11fu12';
+x[76] = '４八銀打';	y[76] = '00gi48gi00ki01fu03ya11fu12';
+x[77] = '５七香打';	y[77] = '00ya57ya00ki01fu03fu12';
+x[78] = '同　金';	y[78] = '67ki57kiyaki01ya01fu03fu12';
+x[79] = '４八成桂';	y[79] = '37nk48nkgiki01ya01fu03gi11fu12';
+x[80] = '同　銀';	y[80] = '59gi48ginkki01ke01ya01fu03gi11fu12';
+x[81] = '６九龍';	y[81] = '66ry69rykiki01ke01ya01fu03ki11gi11fu12';
+x[82] = '同　玉';	y[82] = '58ou69ouryhi01ki01ke01ya01fu03ki11gi11fu12';
+x[83] = '６八金打';	y[83] = '00ki68ki00hi01ki01ke01ya01fu03gi11fu12';
+x[84] = '投了';	y[84] = 'end';
+current = 0;
+rnum = '987654321';
+i = 'img/';
+function KifStart() {
+  if (hanten == 1) {
+    hanten = 0;
+    KifTurn(start);
+    document.panel.list.selectedIndex = start;
+  }
+  else {
+    KifTop(0);
+    if (start != 0) { KifJump(start - 1); }
+    else { MotiGoma(); document.panel.list.selectedIndex = 0; }
+  }
+}
+function KifTop(f) {
+  if (z[0]) { document.msg.msgbox.value = z[0]; }
+  else { document.msg.msgbox.value = ""; }
+  if (document.all && current != 0) {
+    if (y[current - 1] == 'end') { current--; }
+    if (hanten + f == 1) { old = rnum.substring(y[current - 1].substring(4,5) - 1,y[current - 1].substring(4,5)) + rnum.substring(y[current - 1].substring(5,6) - 1,y[current - 1].substring(5,6)); }
+    else { old = y[current - 1].substring(4,6); }
+    eval('b' + old).style.background = '#D89038';
+  }
+  n = 0;
+  for (by = 1; by <= 9; by++) {
+    for (bx = 9; bx >= 1; bx--) {
+      if (hanten == 1) {
+        if (start1.substring(n + 2,n + 3) == '0') { document.images['c' + rnum.substring(bx - 1,bx) + rnum.substring(by - 1,by)].src = i + start1.substring(n,n + 2) + '1.gif'; }
+        else
+        if (start1.substring(n + 2,n + 3) == '1') { document.images['c' + rnum.substring(bx - 1,bx) + rnum.substring(by - 1,by)].src = i + start1.substring(n,n + 2) + '0.gif'; }
+        else { document.images['c' + rnum.substring(bx - 1,bx) + rnum.substring(by - 1,by)].src = i + 'blk.gif'; }
+      }
+      else { document.images['c' + bx + by].src = i + start1.substring(n,n + 3) + '.gif'; }
+      n += 3;
+    }
+  }
+}
+function MotiGoma() {
+  if (current == 0) { temp = start2; }
+  else
+  if (y[current - 1] != 'end') { temp = y[current - 1]; }
+  else { temp = y[current - 2]; }
+  for (n = 1; n <= 8; n++) {
+    document.images['k0' + n].src = i + 'blk.gif';
+    document.images['k1' + n].src = i + 'blk.gif';
+  }
+  if (temp.length > 10) {
+    n0 = 1; n1 = 1;
+    for (n = 10; n <= temp.length - 4; n += 4) {
+      ban = temp.substring(n + 2,n + 3);
+      if (hanten == 1) {
+        if (ban == 0) { ban = 1; }
+        else { ban = 0; }
+      }
+      if (temp.substring(n + 3,n + 4) > '9') {
+        if (ban == 0 && n0 % 2 == 0) { n0++; }
+        else
+        if (ban == 1 && n1 % 2 == 0) { n1++; }
+        document.images['k' + ban + eval('n' + ban)].src = i + 'fu' + ban + '9.gif';
+        if (ban == 0) { n0++; }
+        else { n1++; }
+        fukazu = ' abcdefghi';
+        document.images['k' + ban + eval('n' + ban)].src = i + 'fu' + ban + fukazu.indexOf(temp.substring(n + 3,n + 4),0) + '.gif';
+      }
+      else {
+        document.images['k' + ban + eval('n' + ban)].src = i + temp.substring(n,n + 2) + ban + temp.substring(n + 3,n + 4) + '.gif';
+        if (ban == 0) { n0++; }
+        else { n1++; }
+      }
+    }
+  }
+}
+function KifJump(point) {
+  if (point == -1) { KifTop(0); current = 0; }
+  else
+  if (point >= current) {
+    while (current <= point && current < document.panel.list.options.length - 1) {
+      if (z[current + 1]) { document.msg.msgbox.value = z[current + 1]; }
+      else { document.msg.msgbox.value = ""; }
+      if (y[current] == 'end') { current++; break; }
+      if (hanten == 1) {
+        if (y[current].substring(0,1) == 0) { prev = '00'; }
+        else { prev = rnum.substring(y[current].substring(0,1) - 1,y[current].substring(0,1)) + rnum.substring(y[current].substring(1,2) - 1,y[current].substring(1,2)); }
+        next = rnum.substring(y[current].substring(4,5) - 1,y[current].substring(4,5)) + rnum.substring(y[current].substring(5,6) - 1,y[current].substring(5,6));
+        if (current != 0) { old = rnum.substring(y[current - 1].substring(4,5) - 1,y[current - 1].substring(4,5)) + rnum.substring(y[current - 1].substring(5,6) - 1,y[current - 1].substring(5,6)); }
+      }
+      else {
+        prev = y[current].substring(0,2);
+        next = y[current].substring(4,6);
+        if (current != 0) { old = y[current - 1].substring(4,6); }
+      }
+      koma1 = y[current].substring(2,4);
+      koma2 = y[current].substring(6,8);
+      if (current % 2 == 1) { ban1 = 1 - hanten; }
+      else { ban1 = 0 + hanten; }
+      if (ban1 == 1) { ban1 -= reverse; }
+      else { ban1 += reverse; }
+      if (prev != '00') { document.images['c' + prev].src = i + 'blk.gif'; }
+      document.images['c' + next].src = i + koma2 + ban1 + '.gif';
+      if (document.all) {
+        if (current != 0) { eval('b' + old).style.background = '#D89038'; }
+        eval('b' + next).style.background = '#FFBF68';
+      }
+      current++;
+    }
+  }
+  else {
+    while (current > point + 1 && current > 0) {
+      current--;
+      if (z[current]) { document.msg.msgbox.value = z[current]; }
+      else { document.msg.msgbox.value = ""; }
+      if (y[current] == 'end') { continue; }
+      if (hanten == 1) {
+        if (y[current].substring(0,1) == 0) { prev = '00'; }
+        else { prev = rnum.substring(y[current].substring(0,1) - 1,y[current].substring(0,1)) + rnum.substring(y[current].substring(1,2) - 1,y[current].substring(1,2)); }
+        next = rnum.substring(y[current].substring(4,5) - 1,y[current].substring(4,5)) + rnum.substring(y[current].substring(5,6) - 1,y[current].substring(5,6));
+        if (current != 0) { old = rnum.substring(y[current - 1].substring(4,5) - 1,y[current - 1].substring(4,5)) + rnum.substring(y[current - 1].substring(5,6) - 1,y[current - 1].substring(5,6)); }
+      }
+      else {
+        prev = y[current].substring(0,2);
+        next = y[current].substring(4,6);
+        if (current != 0) { old = y[current - 1].substring(4,6); }
+      }
+      koma1 = y[current].substring(2,4);
+      koma2 = y[current].substring(8,10);
+      if (current % 2 == 1) { ban1 = 1 - hanten; ban2 = 0 + hanten; }
+      else { ban1 = 0 + hanten; ban2 = 1 - hanten; }
+      if (ban1 == 1) { ban1 -= reverse; ban2 += reverse; }
+      else { ban1 += reverse; ban2 -= reverse; }
+      if (koma2 == '00') { document.images['c' + next].src = i + 'blk.gif'; }
+      else { document.images['c' + next].src = i + koma2 + ban2 + '.gif'; }
+      if (prev != '00') { document.images['c' + prev].src = i + koma1 + ban1 + '.gif'; }
+      if (document.all) {
+        eval('b' + next).style.background = '#D89038';
+        eval('b' + old).style.background = '#FFBF68';
+      }
+    }
+  }
+  MotiGoma();
+  document.panel.list.selectedIndex = current;
+}
+function KifPlay() {
+  if (document.panel.play.value == '再生') {
+    if (document.panel.list.selectedIndex < document.panel.list.options.length - 1) {
+      document.panel.play.value = '停止';
+      KifRun();
+    }
+  }
+  else {
+    document.panel.play.value = '再生';
+    clearTimeout(timer);
+  }
+}
+function KifRun() {
+  if (current < document.panel.list.options.length - 1) {
+    KifJump(current);
+    timer = setTimeout("KifRun()",document.panel.speed.options[document.panel.speed.selectedIndex].value);
+  }
+  else {
+    document.panel.play.value = '再生';
+    clearTimeout(timer);
+  }
+}
+function KifTurn(point) {
+  if (hanten == 0) {
+    hanten = 1;
+    tx = new Array('９','８','７','６','','４','３','２','１');
+    ty = new Array('九','八','七','六','','四','三','二','一');
+  }
+  else {
+    hanten = 0;
+    tx = new Array('１','２','３','４','','６','７','８','９');
+    ty = new Array('一','二','三','四','','六','七','八','九');
+  }
+  if (document.all) {
+    for (n = 1; n <= 9; n++) {
+      if (n == 5) { continue; }
+      eval('xline' + n).innerHTML = '<CENTER>' + tx[n - 1] + '</CENTER>';
+      eval('yline' + n).innerHTML = ty[n - 1];
+    }
+    temp = player1.innerText; player1.innerText = player2.innerText; player2.innerText = temp;
+    temp = playerA.innerText; playerA.innerText = playerB.innerText; playerB.innerText = temp;
+  }
+  else
+  if (document.layers) {
+    for (n = 1; n <= 9; n++) {
+      if (n == 5) { continue; }
+      document.layers['xline' + n].layers['xxline' + n].document.write('<CENTER>' + tx[n - 1] + '</CENTER>'); document.layers['xline' + n].layers['xxline' + n].document.close();
+      document.layers['yline' + n].layers['yyline' + n].document.write(ty[n - 1]); document.layers['yline' + n].layers['yyline' + n].document.close();
+    }
+    ido = document.layers['player2'].pageY - document.layers['player1'].pageY;
+    document.layers['player1'].top += ido;
+    document.layers['player2'].top -= ido;
+    ido = document.layers['playerB'].pageY - document.layers['playerA'].pageY;
+    document.layers['playerA'].top += ido;
+    document.layers['playerB'].top -= ido;
+  }
+  KifTop(1); current = 0;
+  if (point != 0) { KifJump(point - 1); }
+  else { MotiGoma(); }
+}
+function KifMsg(kyokumen) {
+  if (y[kyokumen - 1] == 'end') { kyokumen = 'end' + kyokumen; }
+  MsgWin = window.open('../kifmsg.cgi?num=' + location.pathname.substring(location.pathname.lastIndexOf('/') + 1,location.pathname.lastIndexOf('.')) + '&kyokumen=' + kyokumen,'MsgWin','width=290,height=240,scrollbars,resizable');
+  MsgWin.focus();
+}
+function KifNewMsg() {
+  if (! w[0]) { document.msg.msgbox.value = '\n　　　　　　新着なし'; }
+  else { document.msg.msgbox.value = w[0] + '\n\n' + w[1] + '\n\n' + w[2]; }
+}
+//-->
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#E8E8E8" TEXT="#000000" onLoad="KifStart()">
+<CENTER>
+<TABLE BORDER="0" CELLSPACING="2" CELLPADDING="0" STYLE="font-size:9pt">
+<TR>
+<TD BGCOLOR="#000000" ROWSPAN="5">
+<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0">
+<TR><TD BGCOLOR="#D89038">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" STYLE="font-size:9pt">
+<TR VALIGN="BOTTOM">
+<TD ROWSPAN="11"><IMG SRC="img/blk.gif" WIDTH="14" HEIGHT="1"></TD>
+<TD WIDTH="34" NOWRAP ID="xline9"><ILAYER NAME="xline9"><LAYER NAME="xxline9"><CENTER>９</CENTER></LAYER></ILAYER></TD><TD WIDTH="34" NOWRAP ID="xline8"><ILAYER NAME="xline8"><LAYER NAME="xxline8"><CENTER>８</CENTER></LAYER></ILAYER></TD><TD WIDTH="34" NOWRAP ID="xline7"><ILAYER NAME="xline7"><LAYER NAME="xxline7"><CENTER>７</CENTER></LAYER></ILAYER></TD><TD WIDTH="34" NOWRAP ID="xline6"><ILAYER NAME="xline6"><LAYER NAME="xxline6"><CENTER>６</CENTER></LAYER></ILAYER></TD><TD WIDTH="34" ALIGN="CENTER" NOWRAP>５</TD><TD WIDTH="34" NOWRAP ID="xline4"><ILAYER NAME="xline4"><LAYER NAME="xxline4"><CENTER>４</CENTER></LAYER></ILAYER></TD><TD WIDTH="34" NOWRAP ID="xline3"><ILAYER NAME="xline3"><LAYER NAME="xxline3"><CENTER>３</CENTER></LAYER></ILAYER></TD><TD WIDTH="34" NOWRAP ID="xline2"><ILAYER NAME="xline2"><LAYER NAME="xxline2"><CENTER>２</CENTER></LAYER></ILAYER></TD><TD WIDTH="34" NOWRAP ID="xline1"><ILAYER NAME="xline1"><LAYER NAME="xxline1"><CENTER>１</CENTER></LAYER></ILAYER></TD>
+<TD><IMG SRC="img/blk.gif" WIDTH="14" HEIGHT="14"></TD>
+</TR>
+<TR>
+<TD BGCOLOR="#000000" COLSPAN="9" ROWSPAN="9">
+<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+for (by = 1; by <= 9; by++) {
+  document.write('<TR BGCOLOR="#D89038">');
+  for (bx = 9; bx >= 1; bx--) {
+    document.write('<TD ID="b' + bx + by + '"><IMG SRC="img/blk.gif" WIDTH="33" HEIGHT="34" NAME="c' + bx + by + '"></TD>');
+  }
+  document.write('</TR>');
+}
+//-->
+</SCRIPT>
+<NOSCRIPT><TR><TD WIDTH="305" HEIGHT="314" NOWRAP><FONT COLOR="#FFFF80">[ 注意！]<P>あなたのブラウザーはJavaScriptを実行しないように設定されています。<BR>このページは、<B>Internet Explorer 4.0</B>以上または<B>Netscape 4.0</B>以上のブラウザーで<B>JavaScriptの実行をON</B> に設定してご利用下さい。</FONT></TD></TR></NOSCRIPT>
+</TABLE>
+</TD>
+<TD ALIGN="CENTER" ID="yline1"><ILAYER NAME="yline1"><LAYER NAME="yyline1">一</LAYER></ILAYER></TD>
+</TR>
+<TR><TD ALIGN="CENTER" ID="yline2"><ILAYER NAME="yline2"><LAYER NAME="yyline2">二</LAYER></ILAYER></TD></TR><TR><TD ALIGN="CENTER" ID="yline3"><ILAYER NAME="yline3"><LAYER NAME="yyline3">三</LAYER></ILAYER></TD></TR><TR><TD ALIGN="CENTER" ID="yline4"><ILAYER NAME="yline4"><LAYER NAME="yyline4">四</LAYER></ILAYER></TD></TR><TR><TD ALIGN="CENTER">五</TD></TR><TR><TD ALIGN="CENTER" ID="yline6"><ILAYER NAME="yline6"><LAYER NAME="yyline6">六</LAYER></ILAYER></TD></TR><TR><TD ALIGN="CENTER" ID="yline7"><ILAYER NAME="yline7"><LAYER NAME="yyline7">七</LAYER></ILAYER></TD></TR><TR><TD ALIGN="CENTER" ID="yline8"><ILAYER NAME="yline8"><LAYER NAME="yyline8">八</LAYER></ILAYER></TD></TR><TR><TD ALIGN="CENTER" ID="yline9"><ILAYER NAME="yline9"><LAYER NAME="yyline9">九</LAYER></ILAYER></TD></TR>
+<TR><TD COLSPAN="10"><IMG SRC="img/blk.gif" WIDTH="1" HEIGHT="14"></TD></TR>
+</TABLE>
+</TD></TR>
+</TABLE>
+</TD>
+<TD ROWSPAN="2" BGCOLOR="#000000">
+<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="110" HEIGHT="144" STYLE="font-size:9pt">
+<TR><TD BGCOLOR="#9F6830" ALIGN="CENTER"><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k17"><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k18"><BR><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k15"><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k16"><BR><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k13"><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k14"><BR><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k11"><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k12"><BR><IMG SRC="img/blk.gif" WIDTH="1" HEIGHT="1"><BR><SPAN ID="playerA"><ILAYER NAME="playerA">後手</ILAYER></SPAN></TD></TR>
+</TABLE>
+</TD>
+<TD><IMG SRC="img/blk.gif" WIDTH="8" HEIGHT="92"></TD>
+<TD VALIGN="TOP">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" WIDTH="100%">
+<TR><TD BGCOLOR="#9F6830">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" WIDTH="100%" STYLE="font-size:11pt">
+<TR VALIGN="TOP" BGCOLOR="#FFFFFF"><TD ALIGN="CENTER"><FONT STYLE="font-size:9pt">2004年05月14日(金) 22:44:00<BR></FONT></TD></TR>
+</TABLE>
+</TD></TR>
+</TABLE>
+</TD>
+</TR>
+<TR>
+<TD><IMG SRC="img/blk.gif" WIDTH="1" HEIGHT="50"></TD>
+<TD ROWSPAN="5" ALIGN="CENTER" VALIGN="BOTTOM">
+<FORM NAME="msg">
+<B>コメント</B> （<A HREF="JavaScript:KifNewMsg()">新着情報はここ</A>）<BR>
+<TEXTAREA NAME="msgbox" ROWS="16" COLS="32" WRAP="hard" STYLE="border-color:#888888; border-style:solid"></TEXTAREA><BR>
+<IMG SRC="img/blk.gif" WIDTH="1" HEIGHT="5"><BR><INPUT TYPE="BUTTON" VALUE="この局面にコメントをつける" onClick="KifMsg(document.panel.list.selectedIndex)" STYLE="background:#505050; color:#FFFFFF">
+</FORM>
+</TD>
+</TR>
+<TR>
+<TD VALIGN="TOP" WIDTH="110"><IMG SRC="img/blk.gif" WIDTH="2" HEIGHT="1"><SPAN ID="player1"><ILAYER NAME="player1">△dcsyhi</ILAYER></SPAN></TD>
+<TD><IMG SRC="img/blk.gif" WIDTH="1" HEIGHT="26"></TD>
+</TR>
+<TR>
+<TD VALIGN="BOTTOM" WIDTH="110"><IMG SRC="img/blk.gif" WIDTH="2" HEIGHT="1"><SPAN ID="player2"><ILAYER NAME="player2">▲phoenix2000</ILAYER></SPAN></TD>
+<TD><IMG SRC="img/blk.gif" WIDTH="1" HEIGHT="26"></TD>
+</TR>
+<TR>
+<TD BGCOLOR="#000000">
+<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="110" HEIGHT="144" STYLE="font-size:9pt">
+<TR><TD BGCOLOR="#9F6830" ALIGN="CENTER"><IMG SRC="img/blk.gif" WIDTH="1" HEIGHT="1"><BR><SPAN ID="playerB"><ILAYER NAME="playerB">先手</ILAYER></SPAN><BR><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k01"><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k02"><BR><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k03"><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k04"><BR><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k05"><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k06"><BR><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k07"><IMG SRC="img/blk.gif" VSPACE="0" HSPACE="2" WIDTH="48" HEIGHT="32" NAME="k08"></TD></TR>
+</TABLE>
+</TD>
+<TD><IMG SRC="img/blk.gif" WIDTH="1" HEIGHT="144"></TD>
+</TR>
+<TR>
+<TD COLSPAN="3">
+<FORM NAME="panel">
+<IMG SRC="img/blk.gif" WIDTH="1" HEIGHT="4"><BR>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.write('<SELECT NAME="list" SIZE="1" onChange="KifJump(document.panel.list.selectedIndex - 1)">\n');
+document.write('<OPTION VALUE="">-- 開始局面 --\n');
+for (n = 1; n <= x.length; n++) {
+  document.write('<OPTION>');
+  if (z[n]) { document.write(n + '*'); }
+  else { document.write(n + '. '); }
+  if (eval(n + reverse) % 2 == 1) { document.write('▲'); }
+  else { document.write('△'); }
+  document.write(x[n - 1] + "\n");
+}
+document.write('</SELECT>\n');
+//-->
+</SCRIPT>
+<IMG SRC="img/blk.gif" WIDTH="3" HEIGHT="1"><INPUT TYPE="BUTTON" NAME="play" VALUE="再生" onClick="KifPlay()" STYLE="background:#505050; color:#FFFFFF"><IMG SRC="img/blk.gif" WIDTH="3" HEIGHT="1"><SELECT NAME="speed" SIZE="1">
+<OPTION VALUE="250">超速
+<OPTION VALUE="500">速い
+<OPTION VALUE="1000" SELECTED>普通
+<OPTION VALUE="1500">遅い
+<OPTION VALUE="2000">激遅
+</SELECT>
+<IMG SRC="img/blk.gif" WIDTH="3" HEIGHT="1"><INPUT TYPE="BUTTON" VALUE=" |&lt; " onClick="KifTop(0); current = 0; MotiGoma(); document.panel.list.selectedIndex = 0;" STYLE="background:#505050; color:#FFFFFF"><IMG SRC="img/blk.gif" WIDTH="3" HEIGHT="1"><INPUT TYPE="BUTTON" VALUE=" &lt; " onClick="KifJump(current - 2)" STYLE="background:#505050; color:#FFFFFF"><IMG SRC="img/blk.gif" WIDTH="3" HEIGHT="1"><INPUT TYPE="BUTTON" VALUE=" &gt; " onClick="KifJump(current)" STYLE="background:#505050; color:#FFFFFF"><IMG SRC="img/blk.gif" WIDTH="3" HEIGHT="1"><INPUT TYPE="BUTTON" VALUE=" &gt;| " onClick="KifJump(document.panel.list.options.length - 2)" STYLE="background:#505050; color:#FFFFFF">
+<IMG SRC="img/blk.gif" WIDTH="3" HEIGHT="1"><INPUT TYPE="BUTTON" NAME="hanten" VALUE="盤面反転" onClick="KifTurn(document.panel.list.selectedIndex)" STYLE="background:#505050; color:#FFFFFF">
+</FORM>
+</TD>
+</TR>
+</TABLE>
+
+<!-- ここは、書き換えないで下さい。 -->
+<HR SIZE="1" NOSHADE>
+<DIV ALIGN="RIGHT"><B><A HREF="http://www.din.or.jp/~hideyuki/home/" TARGET="_top" STYLE="font-size:10pt">Kifu Player for Web Ver.1.02</A></B></DIV>
+
+</CENTER>
+</BODY></HTML>
